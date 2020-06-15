@@ -48,6 +48,7 @@ case "$CLUSTER" in
     check_spokes
     #oc adm inspect  ns/open-cluster-management  --dest-dir=must-gather
     oc get pods -n "$HUBNAMESPACE" > ${BASE_COLLECTION_PATH}/gather-acm.log 
+    oc get nodes >> ${BASE_COLLECTION_PATH}/gather-acm.log
     oc adm inspect  ns/"$HUBNAMESPACE"  --dest-dir=must-gather
     oc adm inspect  ns/hive  --dest-dir=must-gather
     oc adm inspect  multiclusterhubs.operators.open-cluster-management.io --all-namespaces  --dest-dir=must-gather
